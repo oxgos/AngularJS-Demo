@@ -1,0 +1,31 @@
+<div ng-include=" 'template/header.html' "></div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-push-4">
+      <h3>我的订单</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <table id="myOrder" class="table table-striped">
+        <thead>
+        <tr>
+          <td>编号</td>
+          <td>菜品</td>
+          <td>下单时间</td>
+          <td>联系人</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="ul in orderList">
+          <td>{{ ul.did }}</td>
+          <td><a href="#/detail/{{ ul.did }}"><img ng-src="img/{{ ul.img_sm }}" alt=""></a></td>
+          <td>{{ ul.order_time | date:'yyyy-MM-dd' }}</td>
+          <td>{{ ul.user_name }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div ng-include=" 'template/footer.html' "></div>

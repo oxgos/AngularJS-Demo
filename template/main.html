@@ -1,0 +1,44 @@
+<div ng-include=" 'template/header.html' "></div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <form action="">
+        <div class="form-group has-feedback">
+          <label for="sc" class="sr-only">搜索:</label>
+          <input class="form-control" ng-model="kw" id="sc" type="text" placeholder="搜索菜品名称和原料...">
+          <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </div>
+      </form>
+    </div>
+    <div class="col-xs-12">
+      <table class="table table-bordered" ng-repeat="dish in dishList">
+        <tr>
+          <td>
+            <div class="media">
+              <div class="media-left media-middle">
+                <a href="#/detail/{{ dish.did }}"><img ng-src="img/{{ dish.img_sm }}" alt=""></a>
+              </div>
+              <div class="media-body">
+                <h3 class="media-heading">{{ dish.name }}</h3>
+                <p>主要食料 : {{ dish.material }}</p>
+                <span></span>
+                <p>{{ dish.price | currency :'￥'}}</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-xs-12">
+      <button ng-if="hasMore" ng-click="more()" class="btn btn-success btn-block" type="button">
+        <span ng-hide="isLoading">加载更多</span>
+        <img class="isLoading" ng-show="isLoading" src="img/loading_ajax.gif" alt="">
+      </button>
+      <div ng-if="!hasMore" class="alert alert-danger">
+        <span class="glyphicon glyphicon-warning-sign"></span>
+        没有更多数据了!
+      </div>
+    </div>
+  </div>
+</div>
+<div ng-include=" 'template/footer.html' "></div>

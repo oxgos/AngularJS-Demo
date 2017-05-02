@@ -1,0 +1,45 @@
+<div ng-include=" 'template/header.html' "></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-bordered" ng-show="!isSuccess">
+        <tr>
+          <td>
+            <form action="">
+              <div class="form-group">
+                <label for="user">联系人:</label>
+                <input id="user" type="text" class="form-control" ng-model="user_name">
+              </div>
+              <div class="form-group">
+                <label style="display: block">性别:</label>
+                <label class="radio-inline">
+                  <input type="radio" name="sex" value="1" ng-model="sex">先生
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="sex" value="2" ng-model="sex">女士
+                </label>
+              </div>
+              <div class="form-group">
+                <label for="tel">联系电话:</label>
+                <input type="text" id="tel" class="form-control" ng-model="phone" required>
+              </div>
+              <div class="form-group">
+                <label for="addr">送餐地址:</label>
+                <textarea  id="addr" rows="5" class="form-control" ng-model="addr" required></textarea>
+              </div>
+              <input ng-click="submit()" type="button" value="确定下单" class="btn btn-success btn-block">
+            </form>
+          </td>
+        </tr>
+      </table>
+      <div class="panel panel-default" ng-show="isSuccess">
+        <div class="alert alert-success orderTips" style="margin : 20px 15px">
+          <p>订餐成功!您的订单编号为:{{ userData.did }}.您可以在用户中心查看订单状态.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div ng-include=" 'template/footer.html' "></div>

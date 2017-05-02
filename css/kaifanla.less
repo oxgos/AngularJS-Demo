@@ -1,0 +1,127 @@
+/*公用样式*/
+@colorBlue: #3378b3;
+@gray :#e7e7e7;
+@lighten_gray: #f5f5f5;
+@border: 1px solid #e7e7e7;
+.priceStyle() {
+  color: #ba3e36;
+  font-size: 1.3em;
+}
+.divider() {
+  width: 100%;
+  display: block;
+  border-bottom: @border;
+  margin: 10px 0 20px;
+}
+
+/*index样式*/
+body {
+  position: relative;
+  overflow-x: hidden;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+/*页脚footer样式*/
+@logofont: 1.8em;
+@addpadding: 10px 0;
+
+.footLogo {
+  text-align: center;
+  font-size: @logofont;
+}
+
+.footPadding {
+  padding: @addpadding;
+}
+/*页面跳转动画设置*/
+.page {
+  transition: all .15s linear;
+  position: absolute;
+  margin-bottom: 60px;
+  width: 100%;
+}
+.page.ng-leave {
+  opacity: 1;
+}
+.page.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+.page.ng-enter {
+  left: 100%;
+  opacity: 0;
+}
+.page.ng-enter.ng-enter-active {
+  left: 0;
+  opacity: 1;
+}
+
+/*首页start样式*/
+.start {
+  margin-top: 45%;
+  > h1 {
+    color: @colorBlue;
+    font-size: 7em;
+    text-align: center;
+  }
+  > img {
+    width: 100%;
+    padding-bottom: 8px;
+    border-bottom: @border;
+  }
+}
+/*主页main样式*/
+
+/*@num: floor(`Math.random()*100`)px;
+.marginT {
+  margin-top: @num;
+}*/
+
+.media-body > span {
+  display: block;
+  width: 100%;
+  margin-bottom: 7px;
+  border-bottom: @border;
+  + p {
+    .priceStyle;
+  }
+}
+/*detail页面样式*/
+.detail_content {
+  border: @border;
+  border-radius: 5px 5px 0 0;
+  padding: 0 15px 15px 15px;
+  span {
+    .divider;
+  }
+  >.detail_dsp {
+    background: @lighten_gray;
+    padding: 10px;
+    border: @border;
+    border-radius: 3px;
+    span + p {
+      .priceStyle;
+    }
+  }
+}
+.detail_btn {
+  border: @border;
+  border-top: 0;
+  border-radius: 0 0 5px 5px;
+  text-align: right;
+  padding: 8px;
+  background: @lighten_gray;
+}
+.isLoading {
+  width: 20px;
+  height: 20px;
+}
+
+
+/*我的订单myorder页面样式*/
+#myOrder {
+  border: @border;
+  > tbody > tr > td {
+    vertical-align: middle;
+  }
+}
